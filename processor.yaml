@@ -1,0 +1,34 @@
+---
+containers:
+  - name: FS7
+    path: /data/mcr/centos7/singularity/freesurfer_7.2.0.sif
+  - name: PREPOST
+    path: /data/mcr/centos7/singularity/fs7_post_v2.sif
+requirements:
+  walltime: 0-12
+  memory: 16G
+inputs:
+  self: self
+  xnat:
+    subjects:
+      sessions:
+        - types: Baseline
+          assessors:
+            - types: FS7_v1
+              resources:
+              - resource: SUBJ
+pre:
+  type: singularity_exec
+  container: PREPOST
+  args: /bin/bash /INPUTS/self/src/pre.sh
+command:
+  type: singularity_exec
+  container: FS7
+  args: /bin/bash /INPUTS/self/src/main.sh
+  extraopts: -B $HOME/freesurfer_license.txt:/usr/local/freesurfer/.license
+post:
+  type: singularity_exec
+  container: PREPOST
+  args: /bin/bash /INPUTS/self/src/post.sh
+  extraopts: -B $HOME/freesurfer_license.txt:/opt/freesurfer/.license
+description: Project-level summary with PDF and stats.
