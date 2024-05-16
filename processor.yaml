@@ -1,9 +1,9 @@
 ---
 containers:
   - name: FS7
-    path: /data/mcr/centos7/singularity/freesurfer_7.2.0.sif
+    path: freesurfer_7.2.0.sif
   - name: PREPOST
-    path: /data/mcr/centos7/singularity/fs7_post_v2.sif
+    path: fs7_post_v2.sif
 requirements:
   walltime: 0-12
   memory: 16G
