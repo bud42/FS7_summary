@@ -8,7 +8,6 @@ requirements:
   walltime: 0-12
   memory: 16G
 inputs:
-  self: self
   xnat:
     subjects:
       sessions:
@@ -20,15 +19,15 @@ inputs:
 pre:
   type: singularity_exec
   container: PREPOST
-  args: /bin/bash /INPUTS/self/src/pre.sh
+  args: /bin/bash /REPO/src/pre.sh
 command:
   type: singularity_exec
   container: FS7
-  args: /bin/bash /INPUTS/self/src/main.sh
+  args: /bin/bash /REPO/src/main.sh
   extraopts: -B $HOME/freesurfer_license.txt:/usr/local/freesurfer/.license
 post:
   type: singularity_exec
   container: PREPOST
-  args: /bin/bash /INPUTS/self/src/post.sh
+  args: /bin/bash /REPO/src/post.sh
   extraopts: -B $HOME/freesurfer_license.txt:/opt/freesurfer/.license
 description: Project-level summary with PDF and stats.
