@@ -11,7 +11,8 @@ inputs:
   xnat:
     subjects:
       sessions:
-        - assessors:
+        - types: Baseline,Month8,Month16,Month24
+          assessors:
             - types: FS7_v1
               resources:
               - resource: SUBJ
