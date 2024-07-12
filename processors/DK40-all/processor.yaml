@@ -16,6 +16,8 @@ inputs:
             - types: FS7_v1
               resources:
               - resource: SUBJ
+                fmatch: stats/lh.aparc.stats,stats/rh.aparc.stats
+                ddest: stats
 pre:
   type: singularity_exec
   container: PREPOST
