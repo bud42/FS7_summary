@@ -11,34 +11,11 @@ inputs:
   xnat:
     subjects:
       sessions:
-        - types: Baseline
-          assessors:
+        - assessors:
             - types: FS7_v1
               resources:
               - resource: SUBJ
                 fmatch: stats/lh.aparc.stats,stats/rh.aparc.stats
-                ddest: Baseline
-        - types: Month8
-          assessors:
-            - types: FS7_v1
-              resources:
-              - resource: SUBJ
-                fmatch: stats/lh.aparc.stats,stats/rh.aparc.stats
-                ddest: M08
-        - types: Month16
-          assessors:
-            - types: FS7_v1
-              resources:
-              - resource: SUBJ
-                fmatch: stats/lh.aparc.stats,stats/rh.aparc.stats
-                ddest: M16
-        - types: Month24
-          assessors:
-            - types: FS7_v1
-              resources:
-              - resource: SUBJ
-                fmatch: stats/lh.aparc.stats,stats/rh.aparc.stats
-                ddest: M24
 pre:
   type: singularity_exec
   container: PREPOST
