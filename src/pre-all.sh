@@ -16,5 +16,8 @@ for i in *;do
         # Append to subject list
         echo ${j} >> /OUTPUTS/subjects.txt
 
+    done
+done
+
 # Copy in fsaverage
 cp -r /opt/ext/fsaverage /OUTPUTS/DATA/SUBJECTS
