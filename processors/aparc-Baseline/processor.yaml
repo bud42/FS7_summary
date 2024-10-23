@@ -23,11 +23,11 @@ pre:
 command:
   type: singularity_exec
   container: FS7
-  args: /bin/bash /REPO/src/DK40/main.sh
+  args: /bin/bash /REPO/src/aparc-Baseline/main.sh
   extraopts: -B $HOME/freesurfer_license.txt:/usr/local/freesurfer/.license
 post:
   type: singularity_exec
   container: PREPOST
-  args: /bin/bash /REPO/src/DK40/post.sh
+  args: /bin/bash /REPO/src/aparc-Baseline/post.sh
   extraopts: -B $HOME/freesurfer_license.txt:/opt/freesurfer/.license
 description: Project-level summary with PDF and stats.
